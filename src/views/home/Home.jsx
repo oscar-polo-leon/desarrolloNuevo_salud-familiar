@@ -1,5 +1,5 @@
 import React from 'react';
-import { Typography, Avatar, List, Row, Col, Card, Descriptions, Breadcrumb, Layout  } from 'antd';
+import { Typography, Avatar, List, Row, Col, Card, Descriptions, Breadcrumb } from 'antd';
 import CharPie from '../../components/charpie/CharPie';
 import CharLine from '../../components/charline/CharLine';
 import CharBar from '../../components/charbar/CharBar';

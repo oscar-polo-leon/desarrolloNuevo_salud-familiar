@@ -20,10 +20,10 @@ function Dashboard() {
   return (
     <Layout style={{ minHeight: '100vh', }} >
       <SiderMenu />
-      <Layout className="site-layout">
+      <Layout className="site-layout" style={{minWidth: '450px'}}>
         <Header />
         <Content style={{ margin: '0 16px' }} >
-          <div className="site-layout-background" style={{ padding: '0 14px', minHeight: 360, background: 'none' }} >
+          <div className="site-layout-background" style={{ padding: '0 14px', height: '100%', background: 'none' }} >
             <Routes>        
               <Route path='/home' element={<Home />} /> 
               <Route path='/healthyconditions' element={<HealthyConditions />} /> 
