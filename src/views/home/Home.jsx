@@ -74,12 +74,12 @@ function Home() {
                 </Card>
             </Col>
             <Col xs={24} sm={24} md={24} lg={10} >
-              <Card type="inner" title="Frecuencia cardiaca" style={{height: '350px'}} >
+              <Card type="inner" title="Frecuencia cardiaca" style={{height: '280px'}} >
                 <CharPie />
               </Card>
             </Col>
             <Col xs={24} sm={24} md={24} lg={14} >
-              <Card type="inner" title="Distancia recorrida" style={{height: '350px'}} >
+              <Card type="inner" title="Distancia recorrida" style={{height: '280px'}} >
                 <CharLine />
               </Card>
             </Col>

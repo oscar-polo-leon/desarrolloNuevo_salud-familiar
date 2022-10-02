@@ -8,7 +8,7 @@ function CharBar() {
   }])
   
   const [options, setOptions] = useState({
-    chart: { height: 350, type: 'bar',
+    chart: { height: 200, type: 'bar',
       events: {
         click: function(chart, w, e) {
           // console.log(chart, w, e)
@@ -50,7 +50,7 @@ function CharBar() {
 
   return (
     <div id="chart">
-      <ReactApexChart options={options} series={series} type="bar" height={300} />
+      <ReactApexChart options={options} series={series} type="bar" height={200} />
     </div>
   )
 }
