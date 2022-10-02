@@ -1,5 +1,5 @@
 import React from 'react';
-import { PageHeader, Button, Dropdown, Menu, Tag, Tooltip } from 'antd';
+import { PageHeader, Dropdown, Menu, Tag, Tooltip } from 'antd';
 import { UserOutlined, UnlockOutlined, LockOutlined, LogoutOutlined } from '@ant-design/icons';
 import { Link } from "react-router-dom";
 import './Header.css';
@@ -37,7 +37,7 @@ function Header() {
         </Tooltip>
         }
       extra={[
-          <Dropdown.Button overlay={menu} >{<UserOutlined />}prueba@prueba.com</Dropdown.Button>
+          <Dropdown.Button key={1} overlay={menu} >{<UserOutlined />}prueba@prueba.com</Dropdown.Button>
         ]}
     />
   );
