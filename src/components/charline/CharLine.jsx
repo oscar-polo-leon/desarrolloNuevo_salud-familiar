@@ -10,7 +10,7 @@ function CharLine() {
   
   const [options, setOptions] = useState({
     chart: {
-      height: 350,
+      height: 200,
       type: 'line',
       zoom: {
         enabled: false
@@ -35,7 +35,7 @@ function CharLine() {
 
   return (
     <div id="chart">
-      <ReactApexChart options={options} series={series} type="line" height={250} />
+      <ReactApexChart options={options} series={series} type="line" height={200} />
     </div>
   )
 }
