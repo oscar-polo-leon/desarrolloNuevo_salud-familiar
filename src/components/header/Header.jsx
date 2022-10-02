@@ -1,20 +1,44 @@
 import React from 'react';
-import { PageHeader, Button } from 'antd';
-import { LoginOutlined } from '@ant-design/icons';
+import { PageHeader, Button, Dropdown, Menu, Tag, Tooltip } from 'antd';
+import { UserOutlined, UnlockOutlined, LockOutlined, LogoutOutlined } from '@ant-design/icons';
 import { Link } from "react-router-dom";
-import image from '../../images/logo-groupby.svg';
 import './Header.css';
 
 function Header() {
 
+  const admin = true
+
+  const onMenuClick = (e) => {
+    console.log('click', e);
+  };
+
+  const menu = (
+    <Menu
+      onClick={onMenuClick}
+      items={[
+        {
+          key: '1',
+          label: 'Cerrar Seccion',
+          icon: <LogoutOutlined />,
+        }
+      ]}
+    />
+  );
+
   return(
     <PageHeader
-      style={{ boxShadow: '0px -20px 20px 5px #4a80a1', transition: 'ease-in-out 0.2s'}}
-      title={<Link to="/"><h3 className='h3-brand'>GroupBy</h3></Link>}
-      avatar={{ src: `${image}` }}
+      style={{background: 'white'}}
+      subTitle={admin ? 
+        <Tooltip placement="bottomLeft" title={"Todos los permisos consedidos"}>
+          <Tag style={{display: 'flex', alignItems: 'center', fontSize: '15px'}} icon={<UnlockOutlined />} color="success">Administrador</Tag>
+        </Tooltip> :
+        <Tooltip placement="bottomLeft" title={"Permisos reservados"}>
+          <Tag style={{display: 'flex', alignItems: 'center', fontSize: '15px'}} icon={<LockOutlined />} color="processing">Usuario</Tag>
+        </Tooltip>
+        }
       extra={[
-        <Link to="account" key="3" ><Button ghost icon={<LoginOutlined />} type="success"><span className='span-button'>Cuenta</span></Button></Link>
-      ]}
+          <Dropdown.Button overlay={menu} >{<UserOutlined />}prueba@prueba.com</Dropdown.Button>
+        ]}
     />
   );
 }

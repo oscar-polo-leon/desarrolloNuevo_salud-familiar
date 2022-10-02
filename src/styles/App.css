@@ -7,3 +7,8 @@
 .site-layout .site-layout-background {
   background: #fff;
 }
+
+.container__principal{
+  background: white;
+  padding: 24px;
+}

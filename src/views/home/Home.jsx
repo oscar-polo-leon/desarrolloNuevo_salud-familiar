@@ -1,132 +1,99 @@
-import React, { useState } from 'react';
-import { Typography, Avatar, List, Row, Col, Card } from 'antd';
-import ReactApexChart from 'react-apexcharts'
+import React from 'react';
+import { Typography, Avatar, List, Row, Col, Card, Descriptions, Breadcrumb, Layout  } from 'antd';
+import CharPie from '../../components/charpie/CharPie';
+import CharLine from '../../components/charline/CharLine';
+import CharBar from '../../components/charbar/CharBar';
 
 function Home() {
 
-  const { Title } = Typography;
+  const { Title, Text } = Typography;
+
   const data = [
     {
-      title: 'Ant Design Title 1',
+      Name: 'Ant Design Title 1',
       email: 'prueba@prueba.com'
     },
     {
-      title: 'Ant Design Title 2',
+      Name: 'Ant Design Title 2',
       email: 'prueba@prueba.com'
     },
     {
-      title: 'Ant Design Title 3',
+      Name: 'Ant Design Title 3',
       email: 'prueba@prueba.com'
     },
     {
-      title: 'Ant Design Title 4',
+      Name: 'Ant Design Title 4',
       email: 'prueba@prueba.com'
     },
   ];
 
-
-const [series, setSeries] = useState([44, 55, 13, 43, 22])
-
-const [options, setOptions] = useState({
-  chart: {
-    width: 380,
-    type: 'pie',
-  },
-  labels: ['Team A', 'Team B', 'Team C', 'Team D', 'Team E'],
-  responsive: [{
-    breakpoint: 480,
-    options: {
-      chart: {
-        width: 200
-      },
-      legend: {
-        position: 'bottom'
-      }
-    }
-  }]
-})
-
-
-
-
-
-
-
-
-
-
-
-
+  const infoPersonal = {
+    name: 'Oscar Anyei Polo Leon',
+    mobile: '3082552244',
+    age: '22', 
+    gender: 'Masculino',
+    email: 'prueba@prueba.com'
+  }
 
   return (
     <>
-    <Title>Buenvenido Oscars Polo</Title>
+    <Breadcrumb style={{ margin: '16px 0', }} >
+      <Breadcrumb.Item>Dashboard</Breadcrumb.Item>
+      <Breadcrumb.Item>Home</Breadcrumb.Item>
+    </Breadcrumb>
 
-<Row>
-
-      <Col xs={24} sm={24} md={12} lg={6}>
-        <Card type="inner" title="Familiares registrados" >
-          <List size="small"  itemLayout="horizontal" dataSource={data}
-              renderItem={(item) => (
-                <List.Item>
-                  <List.Item.Meta
-                    avatar={<Avatar src="https://joeschmoe.io/api/v1/random" />}
-                    title={<a href="https://ant.design">{item.title}</a>}
-                    description={item.email}
-                  />
-                </List.Item>
-                )}
-              />
-        </Card>
-      </Col>
-
-
-      <Col xs={24} sm={24} md={12} lg={18}>
-
-        <Row>
-
-            <Col xs={24} sm={24} lg={24}>
+    <div className='container__principal'>
+      <Title>Bienvenido Oscar Polo</Title>
+      <Row gutter={[32, 32]}>
+        <Col xs={24} sm={24} md={24} lg={6} gutter={{ xs: 8, sm: 16, md: 24, lg: 32, }}>
+          <Card type="inner" title="Familiares registrados" style={{height: '100%'}}>
+            <List size="small"  itemLayout="horizontal" dataSource={data}
+                renderItem={(item) => (
+                  <List.Item>
+                    <List.Item.Meta
+                      avatar={<Avatar src="https://joeschmoe.io/api/v1/random" />}
+                      title={<a href="https://ant.design">{item.Name}</a>}
+                      description={item.email}
+                    />
+                  </List.Item>
+                  )}
+                />
+          </Card>
+        </Col>
+        <Col xs={24} sm={24} md={24} lg={18} gutter={{ xs: 8, sm: 16, md: 24, lg: 32, }}>
+          <Row gutter={[32, 32]}>
+            <Col xs={24} sm={24} lg={24} gutter={{ xs: 8, sm: 16, md: 24, lg: 32, }}>
                 <Card type="inner" title="Informacion basica" >
-                  Inner Card content
+                <Descriptions>
+                  <Descriptions.Item label="Nombre"><Text strong>{infoPersonal.name}</Text></Descriptions.Item>
+                  <Descriptions.Item label="Celular"><Text strong>{infoPersonal.mobile}</Text></Descriptions.Item>
+                  <Descriptions.Item label="Edad"><Text strong>{infoPersonal.age}</Text></Descriptions.Item>
+                  <Descriptions.Item label="Genero"><Text strong>{infoPersonal.gender}</Text></Descriptions.Item>
+                  <Descriptions.Item label="Correo"><Text strong>{infoPersonal.email}</Text></Descriptions.Item>
+                </Descriptions>
                 </Card>
             </Col>
-
-            <Col flex="none"style={{width: '100%', maxWidth: '400px'}} >
-              <Card type="inner" title="Frecuencia cardiaca" >
-                <div id="chart" >
-                  <ReactApexChart options={options} series={series} type="pie"  />
-                </div>
+            <Col xs={24} sm={24} md={24} lg={10} >
+              <Card type="inner" title="Frecuencia cardiaca" style={{height: '350px'}} >
+                <CharPie />
               </Card>
             </Col>
-            <Col flex="auto">
-              <Card type="inner" title="Distancia recorrida" >
-                Inner Card content
+            <Col xs={24} sm={24} md={24} lg={14} >
+              <Card type="inner" title="Distancia recorrida" style={{height: '350px'}} >
+                <CharLine />
               </Card>
             </Col>
-        </Row>
-
+          </Row>
         </Col>
-
-</Row>
-
-<Row>
-
-<Col span={24}>
-            <Card type="inner" title="Entrenamientos" >
-              Inner Card content
-            </Card>
-            </Col>
-
-</Row>
-
-
-
-
-
-
-
-
-
+      </Row>
+      <Row gutter={[8, 32]} style={{marginTop:'30px'}}>
+        <Col span={24} gutter={{ xs: 8, sm: 16, md: 24, lg: 32, }}>
+          <Card type="inner" title="Entrenamientos" >
+            <CharBar />
+          </Card>
+        </Col>
+      </Row>
+    </div>
     </>
   )
 }
