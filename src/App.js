@@ -6,10 +6,7 @@ import Home from './views/home/Home';
 function App() {
   return (
     <>
-      <Routes>
-        <Route path='/' element={<Dashboard />} /> 
-        <Route path='/home' element={<Home />} />  
-      </Routes>
+      <Dashboard />
     </>
   );
 }
