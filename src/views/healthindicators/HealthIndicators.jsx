@@ -11,6 +11,15 @@ function HealthIndicators() {
     console.log('Failed:', errorInfo);
   };
 
+  const onFinish1 = (values) => {
+    console.log('Success:', values);
+  };
+
+  const onFinishFailed1 = (errorInfo) => {
+    console.log('Failed:', errorInfo);
+  };
+
+
   const marks = {
     60: { style: { color: '#19B809', }, label: <strong>60ppm</strong>, },
     70: { style: { color: '#B9E600', }, label: <strong>70ppm</strong>, },
@@ -38,14 +47,14 @@ function HealthIndicators() {
         </Form.Item>
       </Form>
       <Divider />
-      <Form name="basic1" labelCol={{ span: 18, }} wrapperCol={{ sm: 24, md: 24, lg: 8 }} layout="vertical" onFinish={onFinish} onFinishFailed={onFinishFailed} autoComplete="off" >
+      <Form name="basic1" labelCol={{ span: 18, }} wrapperCol={{ sm: 24, md: 24, lg: 8 }} layout="vertical" onFinish={onFinish1} onFinishFailed={onFinishFailed1} autoComplete="off" >
         <Form.Item name="slider" label="Frecuenca cardiaca" rules={[ { required: true, message: 'Campo requerido.', }, ]} >
-          <Slider marks={marks} defaultValue={100} tooltip={{ open: true,}} min={50} />
+          <Slider marks={marks} tooltip={{ open: true,}} min={50} />
         </Form.Item>
-        <Form.Item label="Presion arterial" name="conditionType" rules={[ { required: true, message: 'Campo requerido.', }, ]}>
+        <Form.Item label="Presion arterial" name="bloodPressure" rules={[ { required: true, message: 'Campo requerido.', }, ]}>
           <Input />
         </Form.Item>
-        <Form.Item label="Saturacion de exigeno" name="conditionType" rules={[ { required: true, message: 'Campo requerido.', }, ]}>
+        <Form.Item label="Saturacion de exigeno" name="oxygenSeturation" rules={[ { required: true, message: 'Campo requerido.', }, ]}>
           <Input />
         </Form.Item>
         <Form.Item label="Horas de entrenamiento" name='training' rules={[ { required: true, message: 'Campo requerido.', }, ]} >
