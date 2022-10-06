@@ -1,15 +1,17 @@
 import React from 'react';
 import { PageHeader, Dropdown, Menu, Tag, Tooltip } from 'antd';
 import { UserOutlined, UnlockOutlined, LockOutlined, LogoutOutlined } from '@ant-design/icons';
-import { Link } from "react-router-dom";
 import './Header.css';
+import { useNavigate, Link } from 'react-router-dom';
 
 function Header() {
 
+  let navigate = useNavigate();
   const admin = true
 
   const onMenuClick = (e) => {
-    console.log('click', e);
+    localStorage.setItem("user", JSON.stringify({login: false}))
+    navigate('login')
   };
 
   const menu = (
